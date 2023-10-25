@@ -56,11 +56,12 @@ if __name__ == "__main__":
 
         # define input
         m_input: Path = Path(args.input).expanduser() if args.input else Path.cwd()
+        allele_definition_jsons: list = []
         if not args.input:
             print(f'No input was provided. '
                   f'Looking for the allele definition JSON files under the current working directory: {m_input}')
         elif m_input.is_file():
-            allele_definition_jsons: list[str] = [m_input]
+            allele_definition_jsons: list = [m_input]
         elif m_input.is_dir():
             print(f'Looking for the allele definition JSON files under {m_input}')
             # get the list allele definition files
