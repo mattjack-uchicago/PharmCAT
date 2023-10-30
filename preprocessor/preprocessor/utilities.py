@@ -405,7 +405,7 @@ def bgzip_file(file: Path, verbose: int = 0):
     """
     if verbose:
         print('  * Bgzipping', file)
-    run([common.BGZIP_PATH, '-f', str(file)])
+    run([common.BGZIP_PATH, '-fk', str(file)])
     # make sure it worked
     gz_path: Path = Path(str(file) + '.gz')
     if not gz_path.exists():
